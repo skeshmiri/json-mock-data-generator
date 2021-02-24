@@ -208,10 +208,10 @@ public class JSONObjectLinked extends JSONObject {
             } else if (value instanceof JSONArray) {
                 ((JSONArray) value).write(writer, indentFactor, indent);
             } else if (value instanceof Map) {
-                Map<?, ?> map = (Map) value;
+                Map<?, ?> map = (Map<?, ?>) value;
                 (new JSONObject(map)).write(writer, indentFactor, indent);
             } else if (value instanceof Collection) {
-                Collection<?> coll = (Collection) value;
+                Collection<?> coll = (Collection<?>) value;
                 (new JSONArray(coll)).write(writer, indentFactor, indent);
             } else if (value.getClass().isArray()) {
                 (new JSONArray(value)).write(writer, indentFactor, indent);

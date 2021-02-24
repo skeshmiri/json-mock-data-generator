@@ -29,7 +29,7 @@ public class SourceFactory {
 		random = new Random(new Date().getTime());
 		dateFormat = new SimpleDateFormat("yyyy-MM-dd HH:mm:ss");
 	}
-	
+
 	public Source<?> getSource(Node node) {
 		switch (node.getType()) {
 			case COMPOSITE:
@@ -56,6 +56,12 @@ public class SourceFactory {
 				return new File(node.getPath());
 			case FULL_NAME:
 				return getFullNameSource();
+			case VARIANT_ID:
+				return getCachedSource(node.getType(), (t) -> new VariantId());
+			case CHANNEL:
+				return getCachedSource(node.getType(), (t) -> new Channel());
+			case MODEL_FABRIC:
+				return getCachedSource(node.getType(), (t) -> new ModelFabric());
 			default:		
 				return cache.computeIfAbsent(node.getType(), Bundle::new);				
 		}

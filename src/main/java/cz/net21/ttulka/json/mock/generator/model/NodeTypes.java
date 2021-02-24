@@ -29,7 +29,10 @@ public enum NodeTypes {
 	EMAIL,
 	PHONE,
 	ADDRESS,
-	FILE;
+	FILE,
+	VARIANT_ID,
+	CHANNEL,
+	MODEL_FABRIC;
 
 	public String getCamelCase() {
 		return StringUtils.remove(WordUtils.uncapitalize(WordUtils.capitalizeFully(this.toString(), '_')), "_");

@@ -43,7 +43,7 @@ public class Generator {
         if (!first) {
             writer.write(",");
         }
-        writer.write(node.getName() + ":");
+        writer.write("\""+node.getName()+"\"" + ":");
 
         if (node.getType() == NodeTypes.COMPOSITE) {
             generateCompositeNode(node, writer);
